@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">FirebaseLogin1</string>
+    <string name="register_akun">Daftar</string>
+    <string name="register_nama_akun">nama</string>
+    <string name="register_email">email</string>
+    <string name="register_password">kata sandi</string>
+    <string name="register_konfirmasipassword">konfirmasi password</string>
+    <string name="register_tanyaakun">Sudah memiliki akun silahkan</string>
+    <string name="register_tombol">Daftar</string>
+    <string name="login_akun">Masuk</string>
+    <string name="login_email">email pengguna</string>
+    <string name="login_password">kata sandi</string>
+    <string name="login_tombol">Masuk</string>
+    <string name="login_tanyaaku">Belum memiliki akun</string>
+    <string name="minimum_password">kata sandi harus memiliki panjang 8 karakter</string>
+    <string name="gagal_masuk">gagal masuk</string>
+</resources>

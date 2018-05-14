@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "663662084618",
+    "firebase_url": "https://myfirebaselogin-4f73d.firebaseio.com",
+    "project_id": "myfirebaselogin-4f73d",
+    "storage_bucket": "myfirebaselogin-4f73d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663662084618:android:460bbc0387d08624",
+        "android_client_info": {
+          "package_name": "org.takhir.roningrum.firebaselogin1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663662084618-kto98uv7bj0qi5hfag0q176o9e95cvf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRJtLIdmkgi19OozMP1goPCj_hYKuQNGc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
