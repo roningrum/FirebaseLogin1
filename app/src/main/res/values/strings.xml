@@ -12,6 +12,8 @@
     <string name="login_password">kata sandi</string>
     <string name="login_tombol">Masuk</string>
     <string name="login_tanyaaku">Belum memiliki akun</string>
+    <string name="login_daftar">Daftarkan akun</string>
+    <string name="login_lupakatasandi">Lupa Kata Sandi</string>
     <string name="minimum_password">kata sandi harus memiliki panjang 8 karakter</string>
     <string name="gagal_masuk">gagal masuk</string>
 </resources>

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.takhir.roningrum.firebaselogin1.MainActivity;
 import org.takhir.roningrum.firebaselogin1.R;
+import org.takhir.roningrum.firebaselogin1.registerapp.RegisterActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -29,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText etKataSandi;
     @BindView(R.id.btn_masuk)
     Button BtnLogin;
+    @BindView(R.id.tv_daftar)
+    TextView tvDaftar;
 
     private FirebaseAuth mAuthlogin;
     private FirebaseAuth.AuthStateListener mAuthloginListener;
@@ -97,5 +101,11 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    @OnClick(R.id.tv_daftar)
+    public void ClickDaftarpg(View view){
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+
     }
 }
