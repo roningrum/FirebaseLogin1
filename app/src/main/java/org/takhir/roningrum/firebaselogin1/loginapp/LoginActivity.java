@@ -15,13 +15,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import org.takhir.roningrum.firebaselogin1.MainActivity;
 import org.takhir.roningrum.firebaselogin1.R;
+import org.takhir.roningrum.firebaselogin1.ResetPassActivity;
 import org.takhir.roningrum.firebaselogin1.registerapp.RegisterActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity {
@@ -33,46 +34,21 @@ public class LoginActivity extends AppCompatActivity {
     Button BtnLogin;
     @BindView(R.id.tv_daftar)
     TextView tvDaftar;
+    @BindView(R.id.tv_lupakatasandi)
+    TextView textView;
 
     private FirebaseAuth mAuthlogin;
-    private FirebaseAuth.AuthStateListener mAuthloginListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mAuthlogin = FirebaseAuth.getInstance();
-        mAuthloginListener= new FirebaseAuth.AuthStateListener(){
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-               FirebaseUser user = firebaseAuth.getCurrentUser();
-               final String TAG = "Sukses";
-               if(user!=null){
-                   Log.d(TAG, "OnAuthStateChanged: Sign in" +user.getUid());
-               } else{
-                   Log.d(TAG, "OnAuthStateChange: Sign out");
-               }
-            }
-        };
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mAuthlogin.addAuthStateListener(mAuthloginListener);
-    }
-
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthloginListener!= null) {
-            mAuthlogin.removeAuthStateListener(mAuthloginListener);
-        }
+        ButterKnife.bind(this);
     }
     @OnClick({R.id.btn_masuk})
     public void ClickMasuk(View v){
-        final String email = etEmailMasuk.getText().toString().trim();
+        String email = etEmailMasuk.getText().toString().trim();
         final String password = etKataSandi.getText().toString().trim();
         final String TAG = "masuk";
         if(email.isEmpty()){
@@ -87,25 +63,32 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
+                        if (!task.isSuccessful()) {
+                            Log.d(TAG,"Gagal masuk");
+                            if (password.length() < 6) {
+                                etKataSandi.setError(getString(R.string.minimum_password));
+                            } else {
+                                Toast.makeText(LoginActivity.this, getString(R.string.gagal_masuk), Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            Log.d(TAG,"berhasil masuk");
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
-    @OnClick(R.id.tv_daftar)
+    @OnClick({R.id.tv_daftar})
     public void ClickDaftarpg(View view){
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
 
     }
+    @OnClick({R.id.tv_lupakatasandi})
+    public void ClickResetPg(View v){
+        Intent intent = new Intent(LoginActivity.this, ResetPassActivity.class);
+        startActivity(intent);
+    }
+
 }
