@@ -17,4 +17,9 @@
     <string name="reset_tombol">Reset Kata Sandi</string>
     <string name="minimum_password">kata sandi harus memiliki panjang 8 karakter</string>
     <string name="gagal_masuk">gagal masuk</string>
+    <string name="main_welcome">Selamat Datang</string>
+    <string name="main_namaemail">Nama</string>
+    <string name="main_email">Email</string>
+    <string name="main_tombol_keluar">Log Out</string>
+    <string name="main_tombol_ubahProf">Ubah Profil</string>
 </resources>

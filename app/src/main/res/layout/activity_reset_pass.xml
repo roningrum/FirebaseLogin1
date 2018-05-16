@@ -21,7 +21,7 @@
 
     <Button
         android:id="@+id/bt_reset"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:background="@android:color/holo_green_light"
@@ -32,7 +32,7 @@
 
     <Button
         android:id="@+id/bt_back"
-        android:layout_width="130dp"
+        android:layout_width="156dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@android:color/holo_orange_light"
